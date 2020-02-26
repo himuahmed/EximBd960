@@ -16,7 +16,7 @@ namespace EximBd960.Models
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
 
-        [Required(ErrorMessage = "Enter EntryDate Please")]
+       // [Required(ErrorMessage = "Enter EntryDate Please")]
         public DateTime EntryDate { get; set; }
 
         [Required(ErrorMessage = "Name Cant be empty")]
@@ -26,19 +26,19 @@ namespace EximBd960.Models
         //[Required(ErrorMessage = "Upload Image please")]
         public string ImageURL { get; set; }
 
-        [Required(ErrorMessage = "Enter Passport number.")]
+        //[Required(ErrorMessage = "Enter Passport number.")]
         public string PassportNo { get; set; }
 
-        [Required(ErrorMessage = "Enter passport validity")]
+        //[Required(ErrorMessage = "Enter passport validity")]
         public DateTime PassportValidity { get; set; }
 
-        [Required(ErrorMessage = "Enter birth place.")]
+        //[Required(ErrorMessage = "Enter birth place.")]
         public string BirthPlace { get; set; }
 
-        [Required(ErrorMessage = "Enter Age.")]
+        //[Required(ErrorMessage = "Enter Age.")]
         public int Age { get; set; }
 
-        [Required(ErrorMessage = "Enter the number of child.")]
+        //[Required(ErrorMessage = "Enter the number of child.")]
         public int Child { get; set; }
 
         [Required(ErrorMessage = "Enter Mobile number.")]

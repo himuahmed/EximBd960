@@ -17,13 +17,13 @@ namespace EximBd960.Models
         [StringLength(14,MinimumLength = 11,ErrorMessage = "Enter mobile no correctly.")]
         public string MobileNo { get; set; }
 
-        [Required(ErrorMessage = "Enter address.")]
+        //[Required(ErrorMessage = "Enter address.")]
         public string Address { get; set; }
 
-        [Required(ErrorMessage = "Enter NID number.")]
+        //[Required(ErrorMessage = "Enter NID number.")]
         public string NID { get; set; }
 
-        [Required(ErrorMessage = "Enter passport number.")]
+       // [Required(ErrorMessage = "Enter passport number.")]
         public string PassportNo { get; set; }
     }
 }
