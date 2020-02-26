@@ -11,6 +11,7 @@ namespace EximBd960.Models
         [Key]
         public int JobId { get; set; }
         [Required(ErrorMessage = "Enter job's type please.")]
+
         public string JobType { get; set; }
     }
 }
