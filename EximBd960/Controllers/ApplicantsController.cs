@@ -10,17 +10,19 @@ using EximBd960.Models;
 
 namespace EximBd960.Controllers
 {
+    
     public class ApplicantsController : Controller
     {
         private Eximbd960DbContext db = new Eximbd960DbContext();
 
+        [AllowAnonymous]
         // GET: Applicants
         public ActionResult Index()
         {
             var applicants = db.Applicants.Include(a => a.Agent).Include(a => a.Company).Include(a => a.Country).Include(a => a.User);
             return View(applicants.ToList());
         }
-
+        [Authorize(Roles = "Moderator")]
         // GET: Applicants/Details/5
         public ActionResult Details(int? id)
         {
@@ -36,6 +38,7 @@ namespace EximBd960.Controllers
             return View(applicant);
         }
 
+        [Authorize(Roles = "Moderator")]
         // GET: Applicants/Create
         public ActionResult Create()
         {
@@ -67,6 +70,7 @@ namespace EximBd960.Controllers
             return View(applicant);
         }
 
+        [Authorize(Roles = "Moderator")]
         // GET: Applicants/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -86,6 +90,7 @@ namespace EximBd960.Controllers
             return View(applicant);
         }
 
+        [Authorize(Roles = "Moderator")]
         // POST: Applicants/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -106,6 +111,7 @@ namespace EximBd960.Controllers
             return View(applicant);
         }
 
+        [Authorize(Roles = "Moderator")]
         // GET: Applicants/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -121,6 +127,7 @@ namespace EximBd960.Controllers
             return View(applicant);
         }
 
+        [Authorize(Roles = "Moderator")]
         // POST: Applicants/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
