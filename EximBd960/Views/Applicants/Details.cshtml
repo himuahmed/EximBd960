@@ -1,0 +1,219 @@
+﻿@model EximBd960.Models.Applicant
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Applicant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Agent.AgentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Agent.AgentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Company.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company.CompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Country.CountryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country.CountryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EntryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EntryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicantName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicantName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassportNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassportNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassportValidity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassportValidity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthPlace)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthPlace)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Child)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Child)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobileNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MedicalStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MedicalStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TcStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TcStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PcStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PcStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CvDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CvDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VisaDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VisaDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgreementDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgreementDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Finger)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Finger)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmbassyReport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmbassyReport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Manpower)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manpower)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Note)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ApplicantId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
