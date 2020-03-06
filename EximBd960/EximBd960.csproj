@@ -284,6 +284,7 @@
     <Content Include="Views\Applicants\Index.cshtml" />
     <Content Include="Views\Users\LogIn.cshtml" />
     <Content Include="Views\Users\SignUp.cshtml" />
+    <Content Include="Views\Applicants\Index1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
