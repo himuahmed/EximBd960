@@ -22,6 +22,11 @@ namespace EximBd960.Controllers
             var applicants = db.Applicants.Include(a => a.Agent).Include(a => a.Company).Include(a => a.Country).Include(a => a.User);
             return View(applicants.ToList());
         }
+        public ActionResult Index1()
+        {
+            var applicants = db.Applicants.Include(a => a.Agent).Include(a => a.Company).Include(a => a.Country).Include(a => a.User);
+            return View(applicants.ToList());
+        }
         [Authorize(Roles = "Moderator")]
         // GET: Applicants/Details/5
         public ActionResult Details(int? id)

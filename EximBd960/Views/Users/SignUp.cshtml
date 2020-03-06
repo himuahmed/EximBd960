@@ -12,7 +12,13 @@
     <link rel="stylesheet" href="../../Content/fonts/material-icon/css/material-design-iconic-font.min.css">
     <!-- Main css -->
     <link rel="stylesheet" href="../../Content/css/style.css">
- 
+    <script src="/Scripts/jquery-3.3.1.js"></script>
+    <script src="/Scripts/jquery.validate.js"></script>
+    <script src="/Scripts/jquery.validate.unobtrusive.js"></script>
+
+
+
+
     <form>
         <div class="signup-content">
             <div class="signup-form">
@@ -34,8 +40,9 @@
                         @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
-                        <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                        <input type="password" name="re_password" id="re_pass" placeholder="Repeat your password" required="" />
+                        <label for="ConfirmPassword"><i class="zmdi zmdi-lock-outline"></i></label>
+                        <input  data-val="true"  placeholder="Repeat your password" data-val-equalto="Password didn't match" data-val-equalto-other="*.Password" data-val-required="Required." id="ConfirmPassword" name ="ConfirmPassword"  type="password" />
+                        <span class="field-validation-valid error" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span>
 
                     </div>
                     <div class="form-group">
