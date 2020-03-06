@@ -47,10 +47,14 @@ namespace EximBd960.Controllers
         // GET: Applicants/Create
         public ActionResult Create()
         {
+
+            var LoggedInUser = db.Users.ToList().Where(d => d.UserName == User.Identity.Name);
             ViewBag.AgentId = new SelectList(db.Agents, "AgentId", "AgentName");
             ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "CompanyName");
             ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName");
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName");
+           // ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName");
+            ViewBag.UserId = new SelectList(LoggedInUser, "UserId", "UserName");
+            //ViewBag.UserId = User.Identity;
             return View();
         }
 
@@ -67,11 +71,13 @@ namespace EximBd960.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            var LoggedInUser = db.Users.ToList().Where(d => d.UserName == User.Identity.Name);
 
             ViewBag.AgentId = new SelectList(db.Agents, "AgentId", "AgentName", applicant.AgentId);
             ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "CompanyName", applicant.CompanyId);
             ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", applicant.CountryId);
             ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", applicant.UserId);
+            //ViewBag.UserId = new SelectList(LoggedInUser, "User_Id", "UserName");
             return View(applicant);
         }
 
