@@ -109,5 +109,9 @@ namespace EximBd960.Models
 
         [Display(Name = "Note: ")]
         public string Note { get; set; }
-    }
+
+		public int JobId { get; set; }
+		[ForeignKey("JobId")]
+		public virtual Job Job { get; set; }
+	}
 }
