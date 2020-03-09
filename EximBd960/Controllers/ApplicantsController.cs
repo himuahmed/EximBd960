@@ -50,7 +50,8 @@ namespace EximBd960.Controllers
             ViewBag.AgentId = new SelectList(db.Agents, "AgentId", "AgentName");
             ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "CompanyName");
             ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName");
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName");
+            ViewBag.JobId = new SelectList(db.Jobs, "JobId", "JobType");
+
             return View();
         }
 
@@ -71,7 +72,8 @@ namespace EximBd960.Controllers
             ViewBag.AgentId = new SelectList(db.Agents, "AgentId", "AgentName", applicant.AgentId);
             ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "CompanyName", applicant.CompanyId);
             ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", applicant.CountryId);
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", applicant.UserId);
+            ViewBag.JobId = new SelectList(db.Jobs, "JobId", "JobType",applicant.JobId);
+          
             return View(applicant);
         }
 
