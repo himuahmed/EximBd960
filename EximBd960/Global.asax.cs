@@ -1,5 +1,7 @@
-﻿using System;
+﻿using EximBd960.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,6 +18,8 @@ namespace EximBd960
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-        }
-    }
+			//Database.SetInitializer<Eximbd960DbContext>(new DropCreateDatabaseIfModelChanges<Eximbd960DbContext>());
+
+		}
+	}
 }

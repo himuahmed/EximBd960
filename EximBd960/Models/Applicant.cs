@@ -35,8 +35,10 @@ namespace EximBd960.Models
         public string PassportNo { get; set; }
 
         [Display(Name = "Passport Validity: ")]
-        //[Required(ErrorMessage = "Enter passport validity")]
-        public DateTime? PassportValidity { get; set; }
+		//[Required(ErrorMessage = "Enter passport validity")]
+		[Required]
+		[DataType(DataType.Date)]
+		public DateTime? PassportValidity { get; set; }
 
         [Display(Name = "Birth Place: ")]
         //[Required(ErrorMessage = "Enter birth place.")]
@@ -86,11 +88,15 @@ namespace EximBd960.Models
         public DateTime? CvDate { get; set; }
 
         [Display(Name = "Visa Date: ")]
-        public DateTime? VisaDate { get; set; }
+		[Required]
+		[DataType(DataType.Date)]
+		public DateTime? VisaDate { get; set; }
 
         [Display(Name = "Agreement Date: ")]
-        //[Required(ErrorMessage = "Enter agreement date.")]
-        public DateTime? AgreementDate { get; set; }
+		//[Required(ErrorMessage = "Enter agreement date.")]
+		[Required]
+		[DataType(DataType.Date)]
+		public DateTime? AgreementDate { get; set; }
 
         [Display(Name = "Finger: ")]
         public string Finger { get; set; }
@@ -105,7 +111,9 @@ namespace EximBd960.Models
         public string Status { get; set; }
 
         [Display(Name = "Flight Date: ")]
-        public DateTime? FlightDate { get; set; }
+		[Required]
+		[DataType(DataType.Date)]
+		public DateTime? FlightDate { get; set; }
 
         [Display(Name = "Note: ")]
         public string Note { get; set; }

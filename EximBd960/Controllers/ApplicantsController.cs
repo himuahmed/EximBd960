@@ -48,12 +48,12 @@ namespace EximBd960.Controllers
         public ActionResult Create()
         {
 
-            var loggedInUser = db.Users.ToList().Where(d => d.UserName == User.Identity.Name);
+           // var loggedInUser = db.Users.ToList().Where(d => d.UserName == User.Identity.Name);
             ViewBag.AgentId = new SelectList(db.Agents, "AgentId", "AgentName");
             ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "CompanyName");
             ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName");
            // ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName");
-            ViewBag.UserId = new SelectList(loggedInUser, "UserId", "UserName");
+            ViewBag.JobId = new SelectList(db.Jobs, "JobId", "JobType");
             return View();
         }
 
