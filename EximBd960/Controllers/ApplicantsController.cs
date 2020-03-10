@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using EximBd960.Models;
-
+using Microsoft.AspNet.Identity;
 namespace EximBd960.Controllers
 {
-    
+
     public class ApplicantsController : Controller
     {
         private Eximbd960DbContext db = new Eximbd960DbContext();
@@ -60,10 +56,12 @@ namespace EximBd960.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ApplicantId,UserId,EntryDate,ApplicantName,ImageURL,PassportNo,PassportValidity,BirthPlace,Age,Child,MobileNo,CountryId,CompanyId,AgentId,MedicalStatus,TcStatus,PcStatus,CvDate,VisaDate,AgreementDate,Finger,EmbassyReport,Manpower,Status,FlightDate,Note")] Applicant applicant)
+        public ActionResult Create([Bind(Include = "ApplicantId,,ApplicantName,ImageURL,PassportNo,PassportValidity,BirthPlace,Age,Child,MobileNo,CountryId,CompanyId,AgentId,MedicalStatus,Note")] Applicant applicant)
         {
             if (ModelState.IsValid)
             {
+                string user = User.Identity.GetUserId();
+                applicant.UserId =int.Parse(user);
                 db.Applicants.Add(applicant);
                 db.SaveChanges();
                 return RedirectToAction("Index");
