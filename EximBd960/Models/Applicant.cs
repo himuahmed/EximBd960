@@ -36,6 +36,8 @@ namespace EximBd960.Models
 
         [Display(Name = "Passport Validity: ")]
         //[Required(ErrorMessage = "Enter passport validity")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? PassportValidity { get; set; }
 
         [Display(Name = "Birth Place: ")]
@@ -80,16 +82,20 @@ namespace EximBd960.Models
         [Display(Name = "PC Status: ")]
         //[Required(ErrorMessage = "Enter pc status.")]
         public string PcStatus { get; set; }
-
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "CV Date: ")]
         //[Required(ErrorMessage = "Enter CV date.")]
         public DateTime? CvDate { get; set; }
-
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Visa Date: ")]
         public DateTime? VisaDate { get; set; }
 
         [Display(Name = "Agreement Date: ")]
         //[Required(ErrorMessage = "Enter agreement date.")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? AgreementDate { get; set; }
 
         [Display(Name = "Finger: ")]
@@ -103,7 +109,8 @@ namespace EximBd960.Models
 
         [Display(Name = "Status: ")]
         public string Status { get; set; }
-
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Flight Date: ")]
         public DateTime? FlightDate { get; set; }
 
