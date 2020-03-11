@@ -19,7 +19,7 @@ namespace EximBd960.Models
 
         [Display(Name = "Enroll Date: ")]
         // [Required(ErrorMessage = "Enter EntryDate Please")]
-        public DateTime EntryDate { get; set; }
+        public DateTime? EntryDate { get; set; }
 
         [Display(Name = "Applicant's Name: ")]
         [Required(ErrorMessage = "Name Cant be empty")]

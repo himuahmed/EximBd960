@@ -4,6 +4,9 @@ using System.Net;
 using System.Web.Mvc;
 using EximBd960.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNetCore.Identity;
+
 namespace EximBd960.Controllers
 {
 
@@ -47,6 +50,7 @@ namespace EximBd960.Controllers
             ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "CompanyName");
             ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName");
             ViewBag.JobId = new SelectList(db.Jobs, "JobId", "JobType");
+          
 
             return View();
         }
@@ -56,12 +60,14 @@ namespace EximBd960.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ApplicantId,,ApplicantName,ImageURL,PassportNo,PassportValidity,BirthPlace,Age,Child,MobileNo,CountryId,CompanyId,AgentId,MedicalStatus,Note")] Applicant applicant)
+        public ActionResult Create([Bind(Include = "ApplicantId,,ApplicantName,ImageURL,PassportNo,BirthPlace,Age,Child,MobileNo,CountryId,CompanyId,AgentId,MedicalStatus,Note,JobId")] Applicant applicant)
         {
             if (ModelState.IsValid)
             {
-                string user = User.Identity.GetUserId();
-                applicant.UserId =int.Parse(user);
+                //string user = SignInManagerExtensions.AuthenticationResponseGrant.Identity.GetUserId();
+                //  applicant.UserId =int.Parse(user);
+                User user = db.Users.FirstOrDefault(x => x.UserName == User.Identity.Name);
+                applicant.UserId = user.UserId;
                 db.Applicants.Add(applicant);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -71,7 +77,8 @@ namespace EximBd960.Controllers
             ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "CompanyName", applicant.CompanyId);
             ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", applicant.CountryId);
             ViewBag.JobId = new SelectList(db.Jobs, "JobId", "JobType",applicant.JobId);
-          
+           
+
             return View(applicant);
         }
 
