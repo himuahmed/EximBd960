@@ -1,0 +1,18 @@
+﻿namespace EximBd960.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class applicantV2 : DbMigration
+    {
+        public override void Up()
+        {
+            AlterColumn("dbo.Applicants", "EntryDate", c => c.DateTime());
+        }
+        
+        public override void Down()
+        {
+            AlterColumn("dbo.Applicants", "EntryDate", c => c.DateTime(nullable: false));
+        }
+    }
+}

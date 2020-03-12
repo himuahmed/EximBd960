@@ -1,9 +1,15 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using EximBd960.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNetCore.Identity;
+
 namespace EximBd960.Controllers
 {
 
@@ -47,6 +53,7 @@ namespace EximBd960.Controllers
             ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "CompanyName");
             ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName");
             ViewBag.JobId = new SelectList(db.Jobs, "JobId", "JobType");
+          
 
             return View();
         }
@@ -56,14 +63,27 @@ namespace EximBd960.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ApplicantId,,ApplicantName,ImageURL,PassportNo,PassportValidity,BirthPlace,Age,Child,MobileNo,CountryId,CompanyId,AgentId,MedicalStatus,Note")] Applicant applicant)
+        public ActionResult Create([Bind(Include = "ApplicantId,ApplicantName,PassportNo,PassportValidity,BirthPlace,Age,Child,MobileNo,CountryId,CompanyId,AgentId,MedicalStatus,Note,JobId")] Applicant applicant,HttpPostedFileBase imageUpload)
         {
             if (ModelState.IsValid)
             {
-                string user = User.Identity.GetUserId();
-                applicant.UserId =int.Parse(user);
-                db.Applicants.Add(applicant);
-                db.SaveChanges();
+                string path = ImageUpload(imageUpload);
+                if (path.Equals("-1"))
+                {
+
+                }
+                else
+                {
+
+                    applicant.ImageURL = path;
+                    applicant.EntryDate = DateTime.Now;
+                    //string user = SignInManagerExtensions.AuthenticationResponseGrant.Identity.GetUserId();
+                    //  applicant.UserId =int.Parse(user);
+                    User user = db.Users.FirstOrDefault(x => x.UserName == User.Identity.Name);
+                    applicant.UserId = user.UserId;
+                    db.Applicants.Add(applicant);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
 
@@ -71,8 +91,37 @@ namespace EximBd960.Controllers
             ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "CompanyName", applicant.CompanyId);
             ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", applicant.CountryId);
             ViewBag.JobId = new SelectList(db.Jobs, "JobId", "JobType",applicant.JobId);
-          
+           
+
             return View(applicant);
+        }
+        public string ImageUpload(HttpPostedFileBase imgFile)
+        {
+            Random r = new Random();
+            string path = "-1";
+            int random = r.Next();
+            if(imgFile!=null && imgFile.ContentLength>0)
+            {
+                string extension = Path.GetExtension(imgFile.FileName);
+                if(extension.ToLower().Equals(".jpg") || extension.ToLower().Equals(".jpeg") || extension.ToLower().Equals(".png"))
+                {
+                    try
+                    {
+                        path = Path.Combine(Server.MapPath("~/Content/ApplicantUpload"), random + Path.GetFileName(imgFile.FileName));
+                        imgFile.SaveAs(path);
+                        path= "~/Content/ApplicantUpload"+ random + Path.GetFileName(imgFile.FileName);
+                    }
+                    catch(Exception ex) 
+                    {
+                        path = "-1";
+                    }
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('Only jpg ,jpeg or png formats are acceptable....'); </script>");
+            }
+            return path;
         }
 
         [Authorize(Roles = "Moderator")]
@@ -91,7 +140,8 @@ namespace EximBd960.Controllers
             ViewBag.AgentId = new SelectList(db.Agents, "AgentId", "AgentName", applicant.AgentId);
             ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "CompanyName", applicant.CompanyId);
             ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", applicant.CountryId);
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", applicant.UserId);
+            ViewBag.JobId = new SelectList(db.Jobs, "JobId", "JobType", applicant.JobId);
+
             return View(applicant);
         }
 
@@ -112,7 +162,8 @@ namespace EximBd960.Controllers
             ViewBag.AgentId = new SelectList(db.Agents, "AgentId", "AgentName", applicant.AgentId);
             ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "CompanyName", applicant.CompanyId);
             ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", applicant.CountryId);
-            ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", applicant.UserId);
+            ViewBag.JobId = new SelectList(db.Jobs, "JobId", "JobType", applicant.JobId);
+
             return View(applicant);
         }
 
