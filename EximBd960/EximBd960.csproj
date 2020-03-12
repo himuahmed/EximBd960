@@ -304,6 +304,10 @@
     <Compile Include="Migrations\202003110846348_applicantV2.designer.cs">
       <DependentUpon>202003110846348_applicantV2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003120352054_applicantv3.cs" />
+    <Compile Include="Migrations\202003120352054_applicantv3.designer.cs">
+      <DependentUpon>202003120352054_applicantv3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Agent.cs" />
     <Compile Include="Models\AgentsCountry.cs" />
@@ -463,6 +467,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\ApplicantUpload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -486,6 +491,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003110846348_applicantV2.resx">
       <DependentUpon>202003110846348_applicantV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003120352054_applicantv3.resx">
+      <DependentUpon>202003120352054_applicantv3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

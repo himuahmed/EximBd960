@@ -26,7 +26,8 @@ namespace EximBd960.Models
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Password length should be between 3 to 50.")]
         public string ApplicantName { get; set; }
 
-        [Display(Name = "Image Link: ")]
+        [Display(Name = "Upload image: ")]
+        [Column(TypeName = "varchar(MAX)")]
         //[Required(ErrorMessage = "Upload Image please")]
         public string ImageURL { get; set; }
 

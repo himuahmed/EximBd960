@@ -8,7 +8,7 @@
     <h2>Create Applicant</h2>
 
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Create","Applicants",FormMethod.Post,new { enctype="multipart/form-data"}))
     {
         @Html.AntiForgeryToken()
 
@@ -28,7 +28,7 @@
                 </div>
                 @Html.LabelFor(model => model.ImageURL, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-3">
-                    <input type="file" name="fileUpload" />
+                    <input type="file" name="imageUpload" id="imageUpload" class="btn btn-info" />
 
                     @Html.ValidationMessageFor(model => model.ImageURL, "", new { @class = "text-danger" })
                 </div>
