@@ -70,11 +70,12 @@ namespace EximBd960.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            
             ViewBag.AgentId = new SelectList(db.Agents, "AgentId", "AgentName", applicant.AgentId);
             ViewBag.CompanyId = new SelectList(db.Companies, "CompanyId", "CompanyName", applicant.CompanyId);
             ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", applicant.CountryId);
             ViewBag.UserId = new SelectList(db.Users, "UserId", "UserName", applicant.UserId);
+           
             return View(applicant);
         }
 
