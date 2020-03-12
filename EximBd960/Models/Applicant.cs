@@ -19,14 +19,15 @@ namespace EximBd960.Models
 
         [Display(Name = "Enroll Date: ")]
         // [Required(ErrorMessage = "Enter EntryDate Please")]
-        public DateTime EntryDate { get; set; }
+        public DateTime? EntryDate { get; set; }
 
         [Display(Name = "Applicant's Name: ")]
         [Required(ErrorMessage = "Name Cant be empty")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Password length should be between 3 to 50.")]
         public string ApplicantName { get; set; }
 
-        [Display(Name = "Image Link: ")]
+        [Display(Name = "Upload image: ")]
+        [Column(TypeName = "varchar(MAX)")]
         //[Required(ErrorMessage = "Upload Image please")]
         public string ImageURL { get; set; }
 
@@ -36,6 +37,8 @@ namespace EximBd960.Models
 
         [Display(Name = "Passport Validity: ")]
         //[Required(ErrorMessage = "Enter passport validity")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? PassportValidity { get; set; }
 
         [Display(Name = "Birth Place: ")]
@@ -80,16 +83,20 @@ namespace EximBd960.Models
         [Display(Name = "PC Status: ")]
         //[Required(ErrorMessage = "Enter pc status.")]
         public string PcStatus { get; set; }
-
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "CV Date: ")]
         //[Required(ErrorMessage = "Enter CV date.")]
         public DateTime? CvDate { get; set; }
-
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Visa Date: ")]
         public DateTime? VisaDate { get; set; }
 
         [Display(Name = "Agreement Date: ")]
         //[Required(ErrorMessage = "Enter agreement date.")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? AgreementDate { get; set; }
 
         [Display(Name = "Finger: ")]
@@ -103,11 +110,16 @@ namespace EximBd960.Models
 
         [Display(Name = "Status: ")]
         public string Status { get; set; }
-
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Flight Date: ")]
         public DateTime? FlightDate { get; set; }
 
         [Display(Name = "Note: ")]
         public string Note { get; set; }
+
+        public int JobId { get; set; }
+        [ForeignKey("JobId")]
+        public virtual Job Job { get; set; }
     }
 }
