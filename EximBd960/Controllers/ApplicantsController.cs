@@ -63,7 +63,7 @@ namespace EximBd960.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ApplicantId,,ApplicantName,PassportNo,PassportValidity,BirthPlace,Age,Child,MobileNo,CountryId,CompanyId,AgentId,MedicalStatus,Note,JobId")] Applicant applicant,HttpPostedFileBase imageUpload)
+        public ActionResult Create([Bind(Include = "ApplicantId,ApplicantName,PassportNo,PassportValidity,BirthPlace,Age,Child,MobileNo,CountryId,CompanyId,AgentId,MedicalStatus,Note,JobId")] Applicant applicant,HttpPostedFileBase imageUpload)
         {
             if (ModelState.IsValid)
             {
