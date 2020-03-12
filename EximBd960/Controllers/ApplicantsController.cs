@@ -76,6 +76,7 @@ namespace EximBd960.Controllers
                 {
 
                     applicant.ImageURL = path;
+                    applicant.EntryDate = DateTime.Now;
                     //string user = SignInManagerExtensions.AuthenticationResponseGrant.Identity.GetUserId();
                     //  applicant.UserId =int.Parse(user);
                     User user = db.Users.FirstOrDefault(x => x.UserName == User.Identity.Name);
