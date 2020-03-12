@@ -9,162 +9,110 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Agent.AgentName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Company.CompanyName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Country.CountryName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User.UserName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EntryDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApplicantName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageURL)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PassportNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PassportValidity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BirthPlace)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Age)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Child)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MobileNo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MedicalStatus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TcStatus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PcStatus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CvDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VisaDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AgreementDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Finger)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmbassyReport)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Manpower)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FlightDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Note)
-        </th>
-        <th></th>
-    </tr>
+<div>
 
+</div>
     @foreach (var item in Model)
     {
         <tr>
             <td>
+                @Html.DisplayNameFor(model => model.Agent.AgentName)
                 @Html.DisplayFor(modelItem => item.Agent.AgentName)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.Company.CompanyName)
                 @Html.DisplayFor(modelItem => item.Company.CompanyName)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.Country.CountryName)
                 @Html.DisplayFor(modelItem => item.Country.CountryName)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.User.UserName)
                 @Html.DisplayFor(modelItem => item.User.UserName)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.EntryDate)
                 @Html.DisplayFor(modelItem => item.EntryDate)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.ApplicantName)
                 @Html.DisplayFor(modelItem => item.ApplicantName)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.ImageURL)
                 @Html.DisplayFor(modelItem => item.ImageURL)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.PassportNo)
                 @Html.DisplayFor(modelItem => item.PassportNo)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.PassportValidity)
                 @Html.DisplayFor(modelItem => item.PassportValidity)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.BirthPlace)
                 @Html.DisplayFor(modelItem => item.BirthPlace)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.Age)
                 @Html.DisplayFor(modelItem => item.Age)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.Child)
                 @Html.DisplayFor(modelItem => item.Child)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.MobileNo)
                 @Html.DisplayFor(modelItem => item.MobileNo)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.MedicalStatus)
                 @Html.DisplayFor(modelItem => item.MedicalStatus)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.TcStatus)
                 @Html.DisplayFor(modelItem => item.TcStatus)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.PcStatus)
                 @Html.DisplayFor(modelItem => item.PcStatus)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.CvDate)
                 @Html.DisplayFor(modelItem => item.CvDate)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.VisaDate)
                 @Html.DisplayFor(modelItem => item.VisaDate)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.AgreementDate)
                 @Html.DisplayFor(modelItem => item.AgreementDate)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.Finger)
                 @Html.DisplayFor(modelItem => item.Finger)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.EmbassyReport)
                 @Html.DisplayFor(modelItem => item.EmbassyReport)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.Manpower)
                 @Html.DisplayFor(modelItem => item.Manpower)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.Status)
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.FlightDate)
                 @Html.DisplayFor(modelItem => item.FlightDate)
             </td>
             <td>
+                @Html.DisplayNameFor(model => model.Note)
                 @Html.DisplayFor(modelItem => item.Note)
             </td>
             <td>

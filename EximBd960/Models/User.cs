@@ -14,9 +14,11 @@ namespace EximBd960.Models
         [Required(ErrorMessage = "Enter Username please.")]
         public string UserName { get; set; }
 
+
         [Required(ErrorMessage = "Enter Password please.")]
-        [StringLength(20,MinimumLength = 5,ErrorMessage = "Password length should be between 5 to 20.")]
+        [StringLength(20, MinimumLength = 5, ErrorMessage = "Password length should be between 5 to 20.")]
         public string Password { get; set; }
+
 
         //[Required(ErrorMessage = "Role can't be empty.")]
         public string Role { get; set; }
