@@ -6,14 +6,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EximBd960.Models;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.AspNetCore.Identity;
 
 namespace EximBd960.Controllers
 {
 
-    public class ApplicantsController : Controller
+	public class ApplicantsController : Controller
     {
         private Eximbd960DbContext db = new Eximbd960DbContext();
 
@@ -194,6 +191,15 @@ namespace EximBd960.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+		public ActionResult ApplicantINMedical()
+		{
+		    var applicant = db.Applicants.Where(x => (x.MedicalStatus == "Need Medical") || (x.MedicalStatus == "In Medical")).ToList();
+			ViewBag.Country = new SelectList(db.Countries, "CountryId", "CountryName");
+			ViewBag.Company = new SelectList(db.Companies, "CompanyId", "CompanyName");
+			ViewBag.Agents = new SelectList(db.Agents, "AgentId", "AgentName");
+			return View(applicant);
+		}
 
         protected override void Dispose(bool disposing)
         {
