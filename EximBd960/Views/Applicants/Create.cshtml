@@ -1,4 +1,7 @@
-﻿@model EximBd960.Models.Applicant
+﻿@using System.Security.Cryptography.X509Certificates
+@using EximBd960.Models
+@model EximBd960.Models.Applicant
+
 
 @{
     ViewBag.Title = "Create";
@@ -114,30 +117,39 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.MedicalStatus, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-3">
-                 <select id="MedicalStatus" name="MedicalStatus" class="form-control">
-                     <option value="Need Medical">Need Medical</option>
-                     <option value="In Medical">In Medical</option>
-                     <option value="Medical Fit">Medical Fit</option>
-                     <option value="Need Gamca">Need Gamca</option>
-                     <option value="In Gamca">In Gamca</option>
-                     <option value="Gamca Fit">Gamca Fit</option>
-                     
-                 </select>
-                </div>
-                @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-3">
-                    @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.MedicalStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        <select id="MedicalStatus" name="MedicalStatus" class="form-control">
+                            <option value="Need Medical">Need Medical</option>
+                            <option value="In Medical">In Medical</option>
+                            <option value="Medical Fit">Medical Fit</option>
+                            <option value="Need Gamca">Need Gamca</option>
+                            <option value="In Gamca">In Gamca</option>
+                            <option value="Gamca Fit">Gamca Fit</option>
+                        </select>
+                    </div>
+                    @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
-        </div>
+            @*////////////////////////////*@
+            <div>
+                @Html.LabelFor(model => model.CountryId, "Country", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-3">
+                    @Html.DropDownList("CountryId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })
+                    <input type="text" name="Experience" id="Exp"/>
+                </div>
 
-           
+
+            </div>
+            @*/////////////////////////////*@
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class='btn btn-success pull-right' />

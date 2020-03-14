@@ -74,7 +74,6 @@ namespace EximBd960.Controllers
                 }
                 else
                 {
-
                     applicant.ImageURL = path;
                     //string user = SignInManagerExtensions.AuthenticationResponseGrant.Identity.GetUserId();
                     //  applicant.UserId =int.Parse(user);
@@ -94,6 +93,22 @@ namespace EximBd960.Controllers
 
             return View(applicant);
         }
+
+//////////////
+        public ActionResult ExperiencedEmployee()
+        {
+            return View();
+        }
+
+
+
+
+
+
+
+
+
+
         public string ImageUpload(HttpPostedFileBase imgFile)
         {
             Random r = new Random();
