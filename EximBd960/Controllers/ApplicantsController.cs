@@ -60,7 +60,7 @@ namespace EximBd960.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ApplicantId,ApplicantName,PassportNo,PassportValidity,BirthPlace,Age,Child,MobileNo,CountryId,CompanyId,AgentId,MedicalStatus,Note,JobId")] Applicant applicant,HttpPostedFileBase imageUpload)
+        public ActionResult Create([Bind(Include = "ApplicantId,ApplicantName,PassportNo,PassportValidity,BirthPlace,Age,Child,MobileNo,CountryId,CompanyId,AgentId,MedicalStatus,Note,JobId,ImageURL")] Applicant applicant,HttpPostedFileBase imageUpload)
         {
             if (ModelState.IsValid)
             {
@@ -92,19 +92,30 @@ namespace EximBd960.Controllers
             return View(applicant);
         }
 
-//////////////
-        public ActionResult ExperiencedEmployee()
-        {
-            return View();
-        }
-
-
-
-
-
-
-
-
+        
+        //public string UploadImage(HttpPostedFileBase file)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            if (file != null)
+        //            {
+        //                string path = Path.Combine(Server.MapPath("~/Content/ApplicantUpload"), Path.GetFileName(file.FileName));
+        //                file.SaveAs(path);
+        //            }
+        //            return  "File Uploaded successfully";
+        //        }
+        //        catch (Exception e)
+        //        {
+        //           return  "Error while uploading";
+        //        }
+        //    }
+        //    else
+        //    {
+        //        return "Error while uploading";
+        //    }
+        //}
 
 
         public string ImageUpload(HttpPostedFileBase imgFile)
@@ -115,13 +126,13 @@ namespace EximBd960.Controllers
             if(imgFile!=null && imgFile.ContentLength>0)
             {
                 string extension = Path.GetExtension(imgFile.FileName);
-                if(extension.ToLower().Equals(".jpg") || extension.ToLower().Equals(".jpeg") || extension.ToLower().Equals(".png"))
+                if(extension.ToLower().Equals(".jpg") || extension.ToLower().Equals(".jpeg") || extension.ToLower().Equals(".PNG"))
                 {
                     try
                     {
-                        path = Path.Combine(Server.MapPath("~/Content/ApplicantUpload"), random + Path.GetFileName(imgFile.FileName));
+                        path = Path.Combine(Server.MapPath("~/Content/ApplicantUpload"),random + Path.GetFileName(imgFile.FileName));
                         imgFile.SaveAs(path);
-                        path= "~/Content/ApplicantUpload"+ random + Path.GetFileName(imgFile.FileName);
+                        path= "~/Content/ApplicantUpload/"+ random + Path.GetFileName(imgFile.FileName);
                     }
                     catch(Exception ex) 
                     {

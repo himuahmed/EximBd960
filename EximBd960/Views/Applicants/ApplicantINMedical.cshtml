@@ -22,9 +22,9 @@
 	<div class="panel panel-body" >
 		<div class="row">
 			<div class="col-sm-4">
-				<img src=@applicants.ImageURL width="100" height="100" alt="Applicant Name"/>
-				<p>@applicants.Child</p>
-			</div>
+				<img src=@Url.Content(@applicants.ImageURL) width="100" height="100" alt="Applicant Name"/>
+                <p>@applicants.Child</p>
+            </div>
 			<div class="col-sm-4">
 				@Html.Label("Name", htmlAttributes: new { @class = "control-label col-md-2" })
 				@Html.DisplayFor(modelItem=>applicants.ApplicantName,new {@class="col-md-2" })
