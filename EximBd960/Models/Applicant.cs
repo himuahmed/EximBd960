@@ -58,12 +58,12 @@ namespace EximBd960.Models
         public string MobileNo { get; set; }
 
         [Display(Name = "Country: ")]
-        public int CountryId { get; set; }
+        public int? CountryId { get; set; }
         [ForeignKey("CountryId")]
         public virtual Country Country { get; set; }
 
         [Display(Name = "Company: ")]
-        public int CompanyId { get; set; }
+        public int? CompanyId { get; set; }
         [ForeignKey("CompanyId")]
         public virtual Company Company { get; set; }
 
@@ -118,7 +118,7 @@ namespace EximBd960.Models
         [Display(Name = "Note: ")]
         public string Note { get; set; }
 
-        public int JobId { get; set; }
+        public int? JobId { get; set; }
         [ForeignKey("JobId")]
         public virtual Job Job { get; set; }
     }

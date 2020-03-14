@@ -111,6 +111,7 @@
                 @Html.DisplayFor(modelItem => item.ApplicantName)
             </td>
             <td>
+                <img source="@Url.Content(@item.ImageURL)" alt="@item.ApplicantName"/>
                 @Html.DisplayFor(modelItem => item.ImageURL)
             </td>
             <td>
