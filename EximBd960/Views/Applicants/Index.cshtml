@@ -112,8 +112,8 @@
                 @Html.DisplayFor(modelItem => item.ApplicantName)
             </td>
             <td>
-                <img src=@Url.Content(@item.ImageURL) width="100" height="100" alt="Applicant Name" />
-                @*@Html.DisplayFor(modelItem => item.ImageURL)*@
+                @*<img src=@Url.Content(@item.ImageURL) width="100" height="100" alt="Applicant Name" />*@
+                @Html.DisplayFor(modelItem => item.ImageURL)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PassportNo)

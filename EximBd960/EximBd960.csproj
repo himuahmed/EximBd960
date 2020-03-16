@@ -308,6 +308,14 @@
     <Compile Include="Migrations\202003120352054_applicantv3.designer.cs">
       <DependentUpon>202003120352054_applicantv3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003150532095_v4.cs" />
+    <Compile Include="Migrations\202003150532095_v4.designer.cs">
+      <DependentUpon>202003150532095_v4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003150617179_v5.cs" />
+    <Compile Include="Migrations\202003150617179_v5.designer.cs">
+      <DependentUpon>202003150617179_v5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Agent.cs" />
     <Compile Include="Models\AgentsCountry.cs" />
@@ -495,6 +503,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003120352054_applicantv3.resx">
       <DependentUpon>202003120352054_applicantv3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003150532095_v4.resx">
+      <DependentUpon>202003150532095_v4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003150617179_v5.resx">
+      <DependentUpon>202003150617179_v5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -22,7 +22,7 @@ namespace EximBd960.Models
         public DateTime? EntryDate { get; set; }
 
         [Display(Name = "Applicant's Name: ")]
-        [Required(ErrorMessage = "Name Cant be empty")]
+       // [Required(ErrorMessage = "Name Cant be empty")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Password length should be between 3 to 50.")]
         public string ApplicantName { get; set; }
 
